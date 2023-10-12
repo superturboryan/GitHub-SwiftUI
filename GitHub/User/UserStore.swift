@@ -56,14 +56,9 @@ final class UserStore: ObservableObject {
         users = users.sorted(by: {
             switch order {
             case .username:
-                return $0.username < $1.username
+                return $0.username.lowercased() < $1.username.lowercased()
             case .id:
                 return $0.id < $1.id
-            case .name:
-                guard let first = $0.realName, let second = $1.realName else {
-                    return true
-                }
-                return first < second
             }})
         sortOrder = order
     }
@@ -73,6 +68,5 @@ extension UserStore {
     enum SortOrder: String, CaseIterable {
         case username = "username"
         case id = "id"
-        case name = "name"
     }
 }
