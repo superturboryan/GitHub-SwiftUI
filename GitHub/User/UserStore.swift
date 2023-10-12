@@ -12,7 +12,7 @@ protocol UserAccessing {
     func searchForUsers(with query: String) async throws -> [User]
 }
 
-class UserStore: ObservableObject {
+final class UserStore: ObservableObject {
     
     @Published var users: [User] = []
     @Published var searchedUsers: [User]? = nil
@@ -60,7 +60,10 @@ class UserStore: ObservableObject {
             case .id:
                 return $0.id < $1.id
             case .name:
-                return ($0.name ?? "") < ($1.name ?? "")
+                guard let first = $0.name, let second = $1.name else {
+                    return true
+                }
+                return first < second
             }})
         sortOrder = order
     }
