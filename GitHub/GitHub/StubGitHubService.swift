@@ -13,21 +13,22 @@ struct StubGitHubService {
 }
 
 extension StubGitHubService: UserAccessing {
-    func allUsers() async throws -> [User] {
+    func allUsers() async throws -> [DisplayableUser] {
         if shouldThrowError { throw StubError.stub }
-        return shouldReturnEmptyUsers ? [] : [
+        let users: [GitHubService.Response.User] = [
             testUser(),
             testUser(),
             testUser(),
             testUser(),
             testUser(),
         ]
+        return shouldReturnEmptyUsers ? [] : users.map(\.displayable)
     }
     
-    func searchForUsers(with query: String) async throws -> [User] {
+    func searchForUsers(with query: String) async throws -> [DisplayableUser] {
         if shouldThrowError { throw StubError.stub }
         return shouldReturnEmptyUsers ? [] : [
-            testUser(query)
+            testUser(query).displayable
         ]
     }
 }
@@ -44,9 +45,9 @@ extension StubGitHubService {
     }
 }
 
-func testUser(_ named: String? = nil) -> User {
+func testUser(_ named: String? = nil) -> GitHubService.Response.User {
     let id = Int.random(in: 1 ... 1000000)
-    return User(
+    return GitHubService.Response.User(
         login: named ?? "username \(id)",
         id: id,
         avatarUrl: "https://avatars.githubusercontent.com/u/45875515?v=4",

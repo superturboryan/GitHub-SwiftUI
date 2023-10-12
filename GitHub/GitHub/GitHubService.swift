@@ -56,14 +56,16 @@ final class GitHubService {
 }
 
 extension GitHubService: UserAccessing {
-    func allUsers() async throws -> [User] {
+    func allUsers() async throws -> [DisplayableUser] {
         let response = try await get(.allUsers())
-        return response
+        let displayables = response.map(\.displayable)
+        return displayables
     }
     
-    func searchForUsers(with query: String) async throws -> [User] {
+    func searchForUsers(with query: String) async throws -> [DisplayableUser] {
         let response = try await get(.searchUsers(query))
-        return response.items
+        let displayables = response.items.map(\.displayable)
+        return displayables
     }
 }
 

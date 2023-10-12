@@ -8,14 +8,14 @@
 import Foundation
 
 protocol UserAccessing {
-    func allUsers() async throws -> [User]
-    func searchForUsers(with query: String) async throws -> [User]
+    func allUsers() async throws -> [DisplayableUser]
+    func searchForUsers(with query: String) async throws -> [DisplayableUser]
 }
 
 final class UserStore: ObservableObject {
     
-    @Published var users: [User] = []
-    @Published var searchedUsers: [User]? = nil
+    @Published var users: [DisplayableUser] = []
+    @Published var searchedUsers: [DisplayableUser]? = nil
     
     @Published private(set) var sortOrder: SortOrder = .id // Initial state
     @Published private(set) var isLoading: Bool = false
@@ -55,12 +55,12 @@ final class UserStore: ObservableObject {
     func sortUsers(_ order: SortOrder) {
         users = users.sorted(by: {
             switch order {
-            case .login:
-                return $0.login < $1.login
+            case .username:
+                return $0.username < $1.username
             case .id:
                 return $0.id < $1.id
             case .name:
-                guard let first = $0.name, let second = $1.name else {
+                guard let first = $0.realName, let second = $1.realName else {
                     return true
                 }
                 return first < second
@@ -71,7 +71,7 @@ final class UserStore: ObservableObject {
 
 extension UserStore {
     enum SortOrder: String, CaseIterable {
-        case login = "username"
+        case username = "username"
         case id = "id"
         case name = "name"
     }

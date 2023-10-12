@@ -19,12 +19,12 @@ extension GitHubService.Request {
         case searchUsers(_ query: String)
     }
     
-    static func allUsers() -> GitHubService.Request<[User]> {
-        GitHubService.Request<[User]>(api: .allUsers)
+    static func allUsers() -> GitHubService.Request<[GitHubService.Response.User]> {
+        GitHubService.Request<[GitHubService.Response.User]>(api: .allUsers)
     }
     
-    static func searchUsers(_ query: String) -> GitHubService.Request<GitHubService.Response.SearchResults<User>> {
-        GitHubService.Request<GitHubService.Response.SearchResults<User>>(api: .searchUsers(query))
+    static func searchUsers(_ query: String) -> GitHubService.Request<GitHubService.Response.SearchResults<GitHubService.Response.User>> {
+        GitHubService.Request<GitHubService.Response.SearchResults<GitHubService.Response.User>>(api: .searchUsers(query))
     }
 }
 

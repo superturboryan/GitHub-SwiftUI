@@ -9,16 +9,16 @@ import SwiftUI
 
 struct UserListCellView: View {
     
-    @Binding var user: User
+    @Binding var user: DisplayableUser
     
     var body: some View {
         HStack {
             UserAvatarView(imageUrl: user.avatarUrl)
                 .frame(width: 40, height: 40)
             VStack(alignment: .leading) {
-                Text(user.login)
+                Text(user.username)
                     .font(.headline)
-                if let name = user.name, !name.isEmpty {
+                if let name = user.realName, !name.isEmpty {
                     Text(name)
                         .font(.subheadline)
                 }
@@ -30,6 +30,6 @@ struct UserListCellView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    UserListCellView(user: .constant(testUser()))
+    UserListCellView(user: .constant(testUser().displayable))
         .frame(width: 300, height: 100)
 }

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct UserAvatarView: View {
-    var imageUrl: String?
+    var imageUrl: URL?
     var fallbackImage = Image(systemName: "person.crop.circle.badge.exclamationmark") // Default
     var contentMode: ContentMode = .fill
     
     var body: some View {
         ZStack {
             if let imageUrl {
-                AsyncImage(url: URL(string: imageUrl)) { state in
+                AsyncImage(url: imageUrl) { state in
                     if let image = state.image {
                         image.resizable()
                     } else if state.error != nil {
@@ -37,7 +37,7 @@ struct UserAvatarView: View {
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
-    UserAvatarView(imageUrl: "https://avatars.githubusercontent.com/u/45875515?v=4")
+    UserAvatarView(imageUrl: URL(string: "https://avatars.githubusercontent.com/u/45875515?v=4"))
         .padding()
         .frame(width: 200, height: 200)
 }
