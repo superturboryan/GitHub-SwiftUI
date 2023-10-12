@@ -29,13 +29,12 @@ extension GitHubService.Request {
 }
 
 extension GitHubService.Request {
-    
     var path: String {
-        // Swift 5.9 return switch as value
+        // 💡 Swift 5.9 return switch as value
         switch api {
         case .allUsers: "users"
         case .searchUsers: "search/users"
-        // Don't implement default, make compilar warn us if new case added
+        // ❗️ Don't implement default, make compilar warn us if new case added
         }
     }
     
@@ -59,8 +58,8 @@ extension GitHubService.Request {
     var method: String {
         switch api {
         // GET
-        case .searchUsers: fallthrough
-        case .allUsers: return "GET"
+        case .allUsers: fallthrough
+        case .searchUsers: return "GET"
         // POST
         // ...
         // PUT

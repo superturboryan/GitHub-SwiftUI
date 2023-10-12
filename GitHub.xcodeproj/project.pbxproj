@@ -13,8 +13,8 @@
 		9488EE292AD80FC90009EC54 /* User Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE282AD80FC90009EC54 /* User Model.swift */; };
 		9488EE2E2AD810C20009EC54 /* UserStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE2D2AD810C20009EC54 /* UserStore.swift */; };
 		9488EE312AD812080009EC54 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE302AD812080009EC54 /* GitHubService.swift */; };
-		9488EE332AD812660009EC54 /* GitHubRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE322AD812660009EC54 /* GitHubRequest.swift */; };
-		9488EE352AD812D20009EC54 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE342AD812D20009EC54 /* GitHubResponse.swift */; };
+		9488EE332AD812660009EC54 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE322AD812660009EC54 /* Request.swift */; };
+		9488EE352AD812D20009EC54 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE342AD812D20009EC54 /* Response.swift */; };
 		9488EE372AD8146F0009EC54 /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE362AD8146F0009EC54 /* CompositionRoot.swift */; };
 		9488EE392AD8148E0009EC54 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE382AD8148E0009EC54 /* UserListView.swift */; };
 		9488EE3B2AD814D20009EC54 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9488EE3A2AD814D20009EC54 /* Config.swift */; };
@@ -46,8 +46,8 @@
 		9488EE282AD80FC90009EC54 /* User Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User Model.swift"; sourceTree = "<group>"; };
 		9488EE2D2AD810C20009EC54 /* UserStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStore.swift; sourceTree = "<group>"; };
 		9488EE302AD812080009EC54 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
-		9488EE322AD812660009EC54 /* GitHubRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRequest.swift; sourceTree = "<group>"; };
-		9488EE342AD812D20009EC54 /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
+		9488EE322AD812660009EC54 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		9488EE342AD812D20009EC54 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		9488EE362AD8146F0009EC54 /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
 		9488EE382AD8148E0009EC54 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		9488EE3A2AD814D20009EC54 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -162,9 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				9488EE302AD812080009EC54 /* GitHubService.swift */,
-				9488EE322AD812660009EC54 /* GitHubRequest.swift */,
-				9488EE342AD812D20009EC54 /* GitHubResponse.swift */,
 				9488EE3C2AD815630009EC54 /* StubGitHubService.swift */,
+				9488EE322AD812660009EC54 /* Request.swift */,
+				9488EE342AD812D20009EC54 /* Response.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -284,11 +284,11 @@
 				9488EE312AD812080009EC54 /* GitHubService.swift in Sources */,
 				9488EE292AD80FC90009EC54 /* User Model.swift in Sources */,
 				9488EE2E2AD810C20009EC54 /* UserStore.swift in Sources */,
-				9488EE332AD812660009EC54 /* GitHubRequest.swift in Sources */,
+				9488EE332AD812660009EC54 /* Request.swift in Sources */,
 				9488EE3F2AD8166B0009EC54 /* View.swift in Sources */,
 				9488EE3B2AD814D20009EC54 /* Config.swift in Sources */,
 				943477DA2AD7353100A6DED6 /* App.swift in Sources */,
-				9488EE352AD812D20009EC54 /* GitHubResponse.swift in Sources */,
+				9488EE352AD812D20009EC54 /* Response.swift in Sources */,
 				9488EE472AD81ACD0009EC54 /* LinearGradient.swift in Sources */,
 				9488EE432AD819140009EC54 /* UserAvatarView.swift in Sources */,
 			);
